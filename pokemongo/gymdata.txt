@@ -2,25 +2,31 @@
   {
     "title": "Westside Park",
     "lat": 41.724914,
-    "lng": -93.622134,
-    "description": "This is westside park"
+    "lng": -93.622134
+  },
+  {
+    "title": "Water Tower",
+    "lat": 41.733083,
+    "lng": -93.61008
   },
   {
     "title": "Sawgrass",
-    "lat": 41.695891,
-    "lng": -93.628964,
-    "description": "This is westside park"
+    "lat": 41.724914,
+    "lng": -93.622134
   },
   {
     "title": "Prairie Ridge Sports Complex",
-    "lat": 41.744780,
-    "lng": -93.617342,
-    "description": "This is sports complex"
+    "lat": 41.724914,
+    "lng": -93.622134
   },
   {
-    "title": "Ankeny",
-    "lat": 41.732662,
-    "lng": -93.629021,
-    "description": "This is westside park"
+    "title": "Hawkeye Park",
+    "lat": 41.735015,
+    "lng": -93.606999
+  },
+  {
+    "title": "Sprint Store",
+    "lat": 41.70732,
+    "lng": -93.582021
   }
 ]
