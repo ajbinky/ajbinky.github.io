@@ -28,5 +28,10 @@
     "title": "Sprint Store",
     "lat": 41.70732,
     "lng": -93.582021
+  },
+  {
+    "title": "St. Anne's Episcopal Church",
+    "lat": 41.732528,
+    "lng": -93.628834
   }
 ]
