@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Westside Park",
+    "lat": 41.724914,
+    "lng": -93.622134,
+    "description": "This is westside park"
+  }
+]
