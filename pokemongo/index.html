@@ -210,7 +210,7 @@
 
     
     <script>
-      var slideIndex = 1;
+      var slideIndex = 0;
 showDivs(slideIndex);
 console.log("hi");
 
@@ -226,8 +226,8 @@ function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
   var y = document.getElementById("currentImage");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
+  if (n > x.length) {slideIndex = 0}    
+  if (n < 0) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
      x[i].style.display = "none";  
   }
