@@ -205,6 +205,7 @@
         <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
         <div id="currentImage">0/0</div>
         <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+        <button class="w3-button w3-light-grey" onclick="randomDiv()">Random</button>
       </div>
     </div>
 
@@ -213,26 +214,36 @@
       var slideIndex = 0;
       showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
 
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
+      function currentDiv(n) {
+        showDivs(slideIndex = n);
+      }
+      
+      function randomDiv() {
+        var x = document.getElementsByClassName("mySlides");
+        var y = getRandomInt(x.length);
+        showDivs(y);
+      }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var y = document.getElementById("currentImage");
-  if (n >= x.length) {slideIndex = 0}    
-  if (n < 0) {slideIndex = x.length-1}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex].style.display = "block";  
-  y.innerHTML = (slideIndex+1) + "/" + (x.length);
-}
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var y = document.getElementById("currentImage");
+        if (n >= x.length) {slideIndex = 0}    
+        if (n < 0) {slideIndex = x.length-1}
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";  
+        }
+        x[slideIndex].style.display = "block";  
+        y.innerHTML = (slideIndex+1) + "/" + (x.length);
+      }
     </script>
   </body>
 </html>
