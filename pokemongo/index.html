@@ -210,9 +210,8 @@
 
     
     <script>
-      var slideIndex = 1;
-showDivs(slideIndex);
-console.log("hi");
+      var slideIndex = 0;
+      showDivs(slideIndex);
 
 function plusDivs(n) {
   showDivs(slideIndex += n);
@@ -232,7 +231,7 @@ function showDivs(n) {
      x[i].style.display = "none";  
   }
   x[slideIndex].style.display = "block";  
-  y.innerHTML = (n+1) + "/" + x.length;
+  y.innerHTML = (n) + "/" + x.length;
 }
     </script>
   </body>
