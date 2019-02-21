@@ -1,5 +1,25 @@
 const list = "ruleslist";
+const max_timer = 30;
+var timer = 0;
+var audio = new Audio("alert.mp3");
 var rules = ["Rule one", "Rule two", "etc", "Double click a rule to delete it"];
+
+var timer = setInterval(function() {
+  var bar = document.getElementById("timer-bar");
+  if (timer === 0) {
+    audio.play();
+    randomRule();
+    timer = max_timer;
+  } else {
+    timer--;
+  }
+  bar.setAttribute("value", timer);
+}, 1000);
+
+function onLoad() {
+  var bar = document.getElementById("timer-bar");
+  bar.setAttribute("max", max_timer);
+}
 
 function appendRule(rule) {
     var ul = document.getElementById(list);

@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <title>Pokemon TCG Chaos</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script src="script.js"></script>
   </head>
-  <body>
-    <div id="rule" ondblclick="randomRule()">This is where a random rule will show up</div>
-    <button type="submit" onclick="newRule()">New Rule</button>
-    <button type="submit" onclick="toggleRulesList()">Hide Rules</button>
-    <button type="submit" onclick="saveFile()">Save Rules File</button>
-    <ul id="ruleslist">
+  <body onload="onLoad()">
+    <div id="rule-container" class="nes-container is-rounded">
+      <div id="rule" ondblclick="randomRule()">No Chaos rule is currently in play</div>
+    </div>
+    <div id="timer-bar-container">
+      <progress id="timer-bar" class="nes-progress is-primary" value="0" max="100"></progress>
+    </div>
+    <div id="button-container">
+      <button type="submit" onclick="document.getElementById('dialog-rounded').showModal();" class="nes-btn is-primary">New Rule</button>
+      <button type="submit" onclick="toggleRulesList()" class="nes-btn is-primary">Hide Rules</button>
+    </div>
+    <ul id="ruleslist" class="nes-list is-disc">
         <li ondblclick="deleteRule(this)">Rule one</li>
         <li ondblclick="deleteRule(this)">Rule two</li>
         <li ondblclick="deleteRule(this)">etc</li>
         <li ondblclick="deleteRule(this)">Double click a rule to remove it from the list</li>
     </ul>
-    <ul>
-        TODO
-        <li>Persistence of rules</li>
-        <li>CSS - Make it look pretty</li>
-        <li>Timer</li>
-        <li>Sound alert on new rule</li>
-    </ul>
+
+    <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+      <form method="dialog">
+        <p class="title">Rounded dialog</p>
+        <p>Alert: this is a dialog.</p>
+        <menu class="dialog-menu">
+          <input type="text" id="rule_field" class="nes-input">
+          <button class="nes-btn is-primary" onclick="appendRule(document.getElementById('rule_field').value)">Confirm</button>
+          <button class="nes-btn">Cancel</button>
+        </menu>
+      </form>
+    </dialog>
+
   </body>
 </html>
