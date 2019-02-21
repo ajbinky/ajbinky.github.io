@@ -10,7 +10,7 @@
   margin-bottom: 10px;
 }
 
-#button-container, #timer-bar-container {
+.button-container, #timer-bar-container {
   display: flex;
   align-items: center;
   justify-content: center;

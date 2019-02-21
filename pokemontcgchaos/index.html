@@ -15,7 +15,7 @@
     <div id="timer-bar-container">
       <progress id="timer-bar" class="nes-progress is-primary" value="0" max="100"></progress>
     </div>
-    <div id="button-container">
+    <div class="button-container">
       <button type="submit" onclick="document.getElementById('dialog-rounded').showModal();" class="nes-btn is-primary">New Rule</button>
       <button type="submit" onclick="toggleRulesList()" class="nes-btn is-primary">Hide Rules</button>
     </div>
@@ -28,12 +28,13 @@
 
     <dialog class="nes-dialog is-rounded" id="dialog-rounded">
       <form method="dialog">
-        <p class="title">Rounded dialog</p>
-        <p>Alert: this is a dialog.</p>
+        <p class="title">Enter new rule</p>
         <menu class="dialog-menu">
           <input type="text" id="rule_field" class="nes-input">
-          <button class="nes-btn is-primary" onclick="appendRule(document.getElementById('rule_field').value)">Confirm</button>
-          <button class="nes-btn">Cancel</button>
+          <div class="button-container">
+            <button class="nes-btn is-primary" onclick="appendRule(document.getElementById('rule_field').value)">Confirm</button>
+            <button class="nes-btn">Cancel</button>
+          </div>
         </menu>
       </form>
     </dialog>
