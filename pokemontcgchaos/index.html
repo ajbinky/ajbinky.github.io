@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pokemon TCG Chaos</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="rule" ondblclick="randomRule()">This is where a random rule will show up</div>
+    <button type="submit" onclick="newRule()">New Rule</button>
+    <button type="submit" onclick="toggleRulesList()">Hide Rules</button>
+    <button type="submit" onclick="saveFile()">Save Rules File</button>
+    <ul id="ruleslist">
+        <li ondblclick="deleteRule(this)">Rule one</li>
+        <li ondblclick="deleteRule(this)">Rule two</li>
+        <li ondblclick="deleteRule(this)">etc</li>
+        <li ondblclick="deleteRule(this)">Double click a rule to remove it from the list</li>
+    </ul>
+    <ul>
+        TODO
+        <li>Persistence of rules</li>
+        <li>CSS - Make it look pretty</li>
+        <li>Timer</li>
+        <li>Sound alert on new rule</li>
+    </ul>
+  </body>
+</html>
