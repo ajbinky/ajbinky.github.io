@@ -21,7 +21,6 @@
         <!-- Images will be inserted here -->
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         var addItem = function (item) {
             var img = (item.media.m).replace("_m.jpg", "_s.jpg");
@@ -40,10 +39,19 @@
                 }
             });
             content += '</div>';
-            $('#images').html(content);
+            document.getElementById('images').innerHTML = content;
         }
 
-        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=200113907@N06&lang=en-us&format=json&jsoncallback=?", display);
+        var fetchPhotos = function() {
+            var script = document.createElement('script');
+            script.src = "http://api.flickr.com/services/feeds/photos_public.gne?id=200113907@N06&lang=en-us&format=json&jsoncallback=display";
+            document.head.appendChild(script);
+        }
+
+        // Using JSONP for cross-domain request
+        window.display = display; // Making the display function globally accessible for the JSONP callback
+
+        fetchPhotos();
     </script>
 </body>
 </html>
