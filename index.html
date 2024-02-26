@@ -1,18 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>AJ Behncke</title>
-  </head>
-  <body>
-    <a href="maze/index.html">Maze Generator - Recursive Backtracking</a>
-	<br>
-    <a href="camanjs/index.html">CamanJS Image Filter</a>
-	<br>
-	<a href="pokemongo/index.html">Pokemon Go Friend Codes</a>
-	<br>
-	<a href="pokemontcgchaos/index.html">Pokemon TCG Chaos</a>
-	<br>
-	<a href="scripts/index.html">OSRS Scripts</a>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Image Grid</title>
+    <style>
+        img {
+            transition: transform 0.3s ease; /* Smooth scaling transition */
+            width: 100%; /* Make images fully responsive */
+        }
+        .photo-item {
+            padding: 5px; /* Add some spacing around images */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3" id="images">
+        <!-- Images will be inserted here -->
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var addItem = function (item) {
+            var img = (item.media.m).replace("_m.jpg", "_s.jpg");
+            var col = '<div class="col-md-2 photo-item"><a href="' + item.link + '" target="_blank">';
+            col += '<img src="' + img + '" class="img-fluid" title="' + item.title + '">';
+            col += '</a></div>';
+            return col;
+        }
+
+        var display = function (data) {
+            var content = '<div class="row">';
+            data.items.forEach(function(item, index) {
+                content += addItem(item);
+                if ((index + 1) % 5 === 0 && index + 1 !== data.items.length) {
+                    content += '</div><div class="row">';
+                }
+            });
+            content += '</div>';
+            $('#images').html(content);
+        }
+
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=200113907@N06&lang=en-us&format=json&jsoncallback=?", display);
+    </script>
+</body>
 </html>
