@@ -81,16 +81,23 @@
 			color: #910A67;
 			text-decoration: none;
 		}
+
+		ul {
+			color: #910A67;
+		}
+
+		ul li {
+			list-style-type: disc;
+			margin-bottom: 10px;
+		}
 	</style>
 </head>
 <body>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // User is on a mobile device
-        // Dynamically load mobile-specific content or modify existing content
         document.body.innerHTML = `
-			<div>I'm too lazy to make something fancy for mobile right now.</div>
+			<div style="text-align: center; color: #910A67;">I'm too lazy to make something fancy for mobile right now.</div>
 			<ul>
 				<a href="http://www.ajbinky.com"<li>AJBinky.com</li></a>
 				<a href="https://github.com/ajbinky"<li>Github</li></a>
@@ -100,8 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			</ul>
 		`;
     } else {
-        // User is not on a mobile device
-        // Load or modify content for desktop
         document.body.innerHTML = `
 			<div class="center-container">
 				<a href="http://www.ajbinky.com/"><div class="letter-container" data-hover-text="AJBinky"><span>H</span></div></a>
