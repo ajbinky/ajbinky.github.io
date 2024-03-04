@@ -22,6 +22,7 @@
 		body, html {
 			height: 100%;
 			margin: 0;
+			background-color: #070F2B;
 		}
 		
 		.center-container {
@@ -49,8 +50,8 @@
 			position: absolute;
 			opacity: 0;
 			transition: opacity 0.5s ease, transform 0.5s ease;
-			transform: scale(0.2); /* Initial smaller scale for the word */
-			font-size: 0.2em; /* Adjust this value as needed for the initial size of the word */
+			transform: scale(0.2);
+			font-size: 0.2em;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -60,16 +61,16 @@
 
 		.letter-container:hover::after {
 			opacity: 1;
-			transform: scale(1); /* Scale up the word on hover */
+			transform: scale(1);
 		}
 
 		.letter-container:hover span {
-			opacity: 0; /* Hide the initial letter on hover */
+			opacity: 0;
 		}
 
 		span {
 			transition: opacity 0.5s ease;
-			z-index: 1; /* Ensure the letter is above the pseudo-element */
+			z-index: 1;
 		}
 
 		.center-container a:link,
@@ -77,8 +78,8 @@
 		.center-container a:hover,
 		.center-container a:active,
 		.center-container a:focus {
-			color: #0000EE; /* Dark blue color; change as needed */
-			text-decoration: none; /* Optional: Removes underline from links */
+			color: #910A67;
+			text-decoration: none;
 		}
 	</style>
 </head>
