@@ -84,14 +84,35 @@
 	</style>
 </head>
 <body>
-
-<div class="center-container">
-    <a href="http://www.ajbinky.com/"><div class="letter-container" data-hover-text="AJBinky"><span>H</span></div></a>
-    <a href="https://github.com/ajbinky"><div class="letter-container" data-hover-text="Github"><span>E</span></div></a>
-    <a href="https://www.flickr.com/photos/200113907@N06/albums"><div class="letter-container" data-hover-text="Flickr"><span>L</span></div></a>
-    <a href="https://www.instagram.com/notajavadev/"><div class="letter-container" data-hover-text="Instagram"><span>L</span></div></a>
-    <a href="https://boostoverball.com"><div class="letter-container" data-hover-text="Boost Over Ball"><span>O</span></div></a>
-</div>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // User is on a mobile device
+        // Dynamically load mobile-specific content or modify existing content
+        document.body.innerHTML = `
+			<div>I'm too lazy to make something fancy for mobile right now.</div>
+			<ul>
+				<a href="http://www.ajbinky.com"<li>AJBinky.com</li></a>
+				<a href="https://github.com/ajbinky"<li>Github</li></a>
+				<a href="https://www.flickr.com/photos/200113907@N06/albums"<li>Flickr Albums</li></a>
+				<a href="https://www.instagram.com/notajavadev"<li>Instagram</li></a>
+				<a href="https://boostoverball.com"<li>Boost Over Ball</li></a>
+			</ul>
+		`;
+    } else {
+        // User is not on a mobile device
+        // Load or modify content for desktop
+        document.body.innerHTML = `
+			<div class="center-container">
+				<a href="http://www.ajbinky.com/"><div class="letter-container" data-hover-text="AJBinky"><span>H</span></div></a>
+				<a href="https://github.com/ajbinky"><div class="letter-container" data-hover-text="Github"><span>E</span></div></a>
+				<a href="https://www.flickr.com/photos/200113907@N06/albums"><div class="letter-container" data-hover-text="Flickr"><span>L</span></div></a>
+				<a href="https://www.instagram.com/notajavadev/"><div class="letter-container" data-hover-text="Instagram"><span>L</span></div></a>
+				<a href="https://boostoverball.com"><div class="letter-container" data-hover-text="Boost Over Ball"><span>O</span></div></a>
+			</div>
+		`;
+    }
+});
+</script>
 </body>
 </html>
