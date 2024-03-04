@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HSL8DHXD8"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-8HSL8DHXD8');
+	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Image Grid</title>
+    <title>AJBinky</title>
     <style>
-        img {
-            transition: transform 0.3s ease; /* Smooth scaling transition */
-            width: 100%; /* Make images fully responsive */
+        body, html {
+            height: 100%;
+            margin: 0;
         }
-        .photo-item {
-            padding: 5px; /* Add some spacing around images */
+        
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .letter-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px; /* Fixed width */
+            height: 120px; /* Fixed height */
+            font-size: 10em;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-container::after {
+            content: attr(data-hover-text);
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: scale(0.2); /* Initial smaller scale for the word */
+            font-size: 0.2em; /* Adjust this value as needed for the initial size of the word */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .letter-container:hover::after {
+            opacity: 1;
+            transform: scale(1); /* Scale up the word on hover */
+        }
+
+        .letter-container:hover span {
+            opacity: 0; /* Hide the initial letter on hover */
+        }
+
+        span {
+            transition: opacity 0.5s ease;
+            z-index: 1; /* Ensure the letter is above the pseudo-element */
         }
     </style>
 </head>
 <body>
-    <div class="container mt-3" id="images">
-        <!-- Images will be inserted here -->
-    </div>
 
-    <script>
-        var addItem = function (item) {
-            var img = (item.media.m).replace("_m.jpg", "_s.jpg");
-            var col = '<div class="col-md-2 photo-item"><a href="' + item.link + '" target="_blank">';
-            col += '<img src="' + img + '" class="img-fluid" title="' + item.title + '">';
-            col += '</a></div>';
-            return col;
-        }
+<div class="center-container">
+    <div class="letter-container" data-hover-text="AJBinky"><span>H</span></div>
+    <div class="letter-container" data-hover-text="Github"><span>E</span></div>
+    <div class="letter-container" data-hover-text="Flickr"><span>L</span></div>
+    <div class="letter-container" data-hover-text="Instagram"><span>L</span></div>
+    <div class="letter-container" data-hover-text="Boost Over Ball"><span>O</span></div>
+</div>
 
-        var display = function (data) {
-            var content = '<div class="row">';
-            data.items.forEach(function(item, index) {
-                content += addItem(item);
-                if ((index + 1) % 5 === 0 && index + 1 !== data.items.length) {
-                    content += '</div><div class="row">';
-                }
-            });
-            content += '</div>';
-            document.getElementById('images').innerHTML = content;
-        }
-
-        var fetchPhotos = function() {
-            var script = document.createElement('script');
-            script.src = "http://api.flickr.com/services/feeds/photos_public.gne?id=200113907@N06&lang=en-us&format=json&jsoncallback=display";
-            document.head.appendChild(script);
-        }
-
-        // Using JSONP for cross-domain request
-        window.display = display; // Making the display function globally accessible for the JSONP callback
-
-        fetchPhotos();
-    </script>
 </body>
 </html>
